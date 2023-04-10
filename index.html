@@ -34,15 +34,15 @@
 
         var home = new naver.maps.LatLng(37.5414472, 127.0492663);
 
-         var marker = new naver.maps.Marker({
-             position: home,
-             map: map
-         });
+        //  var marker = new naver.maps.Marker({
+        //      position: home,
+        //      map: map
+        //  });
 
          
          
          var contentString = [
-        '<div class="iw_inner" style="font-family:Dongle;font-weight:900;font-size: 19px;width:90px;text-align:center;">',
+        '<div class="iw_inner" style="font-family:Dongle;font-weight:900;font-size: 19px;width:100px;text-align:center;">',
         '   Enough Church',
         // '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
         // '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br />',
@@ -60,7 +60,7 @@
     backgroundColor: "#eee",
     borderColor: "#2db400",
     borderWidth: 3,
-    anchorSize: new naver.maps.Size(20, 30),
+    anchorSize: new naver.maps.Size(20, 20),
     anchorSkew: true,
     anchorColor: "#eee",
     pixelOffset: new naver.maps.Point(10, 10)
@@ -93,10 +93,12 @@ naver.maps.Event.once(map, 'init', function() {
         position: naver.maps.Position.TOP_LEFT
     });
 
+    
     customControl.setMap(map);
 
     naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
         map.setCenter(new naver.maps.LatLng(37.5433367, 127.0503405));
+        map.setZoom(15, true);
     });
 
    
