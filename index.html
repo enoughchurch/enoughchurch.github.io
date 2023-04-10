@@ -9,20 +9,20 @@
 </head>
 <body>
     <div class = 'a'>
-        <img src ="img/intro1.png" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>       
+        <img src ="img/invite1.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>       
     </div>
     <div class = 'b'>
-        <img src ="img/intro2.png" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
+        <img src ="img/invite2.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
     </div>
     <div class = 'c'>
-        <img src ="img/intro3.png" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
+        <img src ="img/invite3.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
     </div>
     <div class = 'd'>
-        <img src ="img/intro4.png" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
+        <img src ="img/invite.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
     </div>
-    <div class = 'e' style = "font-family:'Dongle',sans-serif; font-weight:800; font-size: 40px; text-align: center;">
+    <!-- <div class = 'e' style = "font-family:'Dongle',sans-serif; font-weight:800; font-size: 40px; text-align: center;">
         Enough Church 위치
-    </div>
+    </div> -->
     <div id = "map" style ="width: 100%; height: 250px; display: block; margin : auto;">
     </div> 
     <script>
@@ -34,24 +34,39 @@
 
         var home = new naver.maps.LatLng(37.5414472, 127.0492663);
 
-        // var marker = new naver.maps.Marker({
-        //     position: new naver.maps.LatLng(37.5414472, 127.0492663),
-        //     map: map
-        // });
+         var marker = new naver.maps.Marker({
+             position: home,
+             map: map
+         });
 
-        var contentString = [
-        // '<div class="iw_inner">',
-        //  '   Enough Church',
-        //  '   <p>서울 성동구 뚝섬로 3길 13 Naked Coffee<br />',
-        //  '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="10" height="10" alt="서울시청" class="thumb" /><br />',
-        '       <img src="img/mark.jpg" width="50" height="50" class="thumb" /><br />',
-        //  '   </p>',
-        // '</div>'
+         
+         
+         var contentString = [
+        '<div class="iw_inner" style="font-family:Dongle;font-weight:900;font-size: 19px;width:90px;text-align:center;">',
+        '   Enough Church',
+        // '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
+        // '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br />',
+        // '       <img src="img/mark.jpg" width="50" height="50" class="thumb" /><br />',
+        // '       02-120 | 공공,사회기관 &gt; 특별,광역시청<br />',
+        // '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+        // '   </p>',
+        '</div>'
     ].join('');
+            
 
-    var infowindow = new naver.maps.InfoWindow({
-    content: contentString
+
+     var infowindow = new naver.maps.InfoWindow({
+    content: contentString,
+    backgroundColor: "#eee",
+    borderColor: "#2db400",
+    borderWidth: 3,
+    anchorSize: new naver.maps.Size(20, 30),
+    anchorSkew: true,
+    anchorColor: "#eee",
+    pixelOffset: new naver.maps.Point(10, 10)
     });
+
+ 
 
     naver.maps.Event.addListener(home, "click", function(e) {
         if (infowindow.getMap()) {
@@ -63,9 +78,37 @@
 
     infowindow.open(map, home);
 
-        // var home = new naver.maps.LatLng(37.5414472, 127.0492663);
 
-        // $("to-center")
+
+
+    
+
+    
+    var locationBtnHtml = '<button type="button" class="btm_image"><img src="img/mark2.jpg" width="50" height="50"/></button>';
+ 
+
+naver.maps.Event.once(map, 'init', function() {
+    //customControl 객체 이용하기
+    var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+        position: naver.maps.Position.TOP_LEFT
+    });
+
+    customControl.setMap(map);
+
+    naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.5433367, 127.0503405));
+    });
+
+   
+});
+
+// naver.maps.Event.addListener(marker, 'click', function(e) {
+//    var overlay = e.overlay, // marker
+//         position = overlay.getPosition(),
+//         url = 'http://map.naver.com/index.nhn?enc=utf8&level=2&lng='+ position.lng() +'&lat='+ position.lat() +'&pinTitle=야탑중학교&pinType=SITE';
+
+//     window.open(url);
+// });
     </script>
 </body>
 </html>
