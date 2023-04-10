@@ -23,18 +23,22 @@
     <div class = 'e' style = "font-family:'Dongle',sans-serif; font-weight:800; font-size: 40px; text-align: center;">
         Enough Church 위치
     </div>
-    <div id = "map" style ="width: 100%; height: 300px; display: block; margin : auto;">
+    <div id = "map" style ="width: 100%; height: 250px; display: block; margin : auto;">
     </div> 
     <script>
         var map = new naver.maps.Map('map',{
             center : new naver.maps.LatLng(37.5414472, 127.0492663),
-            zoom: 15
+            zoom: 14
         });
 
         var marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(37.5414472, 127.0492663),
             map: map
         });
+
+        var home = new naver.maps.LatLng(37.5414472, 127.0492663);
+
+        $("to-center")
     </script>
 </body>
 </html>
