@@ -34,10 +34,10 @@
 
         var home = new naver.maps.LatLng(37.5414472, 127.0492663);
 
-        //  var marker = new naver.maps.Marker({
-        //      position: home,
-        //      map: map
-        //  });
+          var marker = new naver.maps.Marker({
+              position: home,
+              map: map
+          });
 
          
          
@@ -63,20 +63,20 @@
     anchorSize: new naver.maps.Size(20, 20),
     anchorSkew: true,
     anchorColor: "#eee",
-    pixelOffset: new naver.maps.Point(10, 10)
+    pixelOffset: new naver.maps.Point(10, 20)
     });
 
  
 
-    naver.maps.Event.addListener(home, "click", function(e) {
+    naver.maps.Event.addListener(marker, "click", function(e) {
         if (infowindow.getMap()) {
           infowindow.close();
         } else {
-         infowindow.open(map, home);
+         infowindow.open(map, marker);
         }
     });
 
-    infowindow.open(map, home);
+    infowindow.open(map, marker);
 
 
 
