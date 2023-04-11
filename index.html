@@ -61,7 +61,7 @@
     content: contentString,
     backgroundColor: "#eee",
     borderColor: "#2db400",
-    borderWidth: 3,
+    borderWidth: 1,
     anchorSize: new naver.maps.Size(20, 20),
     anchorSkew: true,
     anchorColor: "#eee",
@@ -106,7 +106,8 @@ naver.maps.Event.once(map, 'init', function() {
 
 naver.maps.Event.addListener(map, 'click', function(e) {
    
-        url = 'https://map.naver.com/v5/search/naked%20coffee/place/1464370445?c=15,0,0,0,dh&isCorrectAnswer=true';
+        // url = 'https://map.naver.com/v5/search/naked%20coffee/place/1464370445?c=15,0,0,0,dh&isCorrectAnswer=true';
+        url = 'nmap://search?query=Naked Coffee';
 
     window.open(url);
 });
