@@ -21,6 +21,19 @@
         width: 90%;
         height: 90%;       
     }
+    @font-face{
+        src:url("font/BASKVILL.ttf");
+        font-family : "BASKVILL";
+    }
+    #vision{
+        font-family : "BASKVILL";
+    }
+
+    #location{
+        font-family: "BASKVILL";
+    }
+    
+
 </style>
 </head>
 <body>
@@ -29,7 +42,7 @@
     </div>
     <div class = 'b'>
         <br><br><br><br>
-        <h1 style = "font-size : 50px;text-align: center;">목회 비전</h1>
+        <h1 id ="vision" style = "font-size : 50px;text-align: center;">VISION</h1>
             <div class = "video-container">
                 <p vertical-align = "center">               
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/mVdF-kuKy1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>    
@@ -51,7 +64,7 @@
     </div> -->
     <div class = 'f'>
         <br><br><br><br>
-        <h1 style = "font-size : 50px;text-align: center;">교회 위치</h1>
+        <h1 id ="location" style = "font-size : 50px;text-align: center;">MAP</h1>
         <br><br><br><br>
         <div id = "map" style ="width: 90%; height: 250px; display: block; margin : auto;">           
         </div>
@@ -74,7 +87,7 @@
          
          
          var contentString = [
-        '<div class="iw_inner" style="font-family:Dongle;font-weight:900;font-size: 19px;width:100px;height:22px;text-align:center;">',
+        '<div class="iw_inner" style="font-family:BASKVILL;font-weight:900;font-size: 13px;width:100px;height:18px;text-align:center;">',
         '   Enough Church',
         // '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
         // '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br />',
