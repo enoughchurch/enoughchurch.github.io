@@ -128,13 +128,14 @@
     box-sizing: border-box;
 }
 h1{
+    font-family : "BASKVILL";
     font-weight: bold;
     font-size: 20px;
     text-align: center;
 }
 
 body{
-    background-image: url(https://images.unsplash.com/photo-1484503793037-5c9644d6a80a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80);
+    /* background-image: url(https://images.unsplash.com/photo-1484503793037-5c9644d6a80a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80); */
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
@@ -209,27 +210,7 @@ body{
 
 
     <div class = 'a' id = "apage">
-        <img src ="img/1page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>       
-        <h1>첫번째 기도회</h1>
-        <div class = "container">
-            <div class="count">
-                <p class="timer" id="day">00</p>
-                <span>days</span>
-            </div>
-            <div class="count">
-                <p class="timer" id="hours">00</p>
-                <span>hours</span>
-            </div>
-            <div class="count">
-                <p class="timer" id="mins">00</p>
-                <span>mins</span>
-            </div>    
-            <div class="count">
-                <p class="timer" id="seconds">00</p>
-                <span>seconds</span>
-            </div>
-        </div>
-        <br>
+        <img src ="img/1page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>               
     </div>
     <div class = 'b' id = "bpage">
         <img src ="img/2page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
@@ -263,6 +244,26 @@ body{
         <img src ="img/9page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
         <div id = "map" style ="width: 90%; height: 250px; display: block; margin : auto; position:relative; top:-50px;">           
         </div>
+        <h1>COUNT DOWN</h1>
+        <div class = "container">
+            <div class="count">
+                <p class="timer" id="day">00</p>
+                <span>days</span>
+            </div>
+            <div class="count">
+                <p class="timer" id="hours">00</p>
+                <span>hours</span>
+            </div>
+            <div class="count">
+                <p class="timer" id="mins">00</p>
+                <span>mins</span>
+            </div>    
+            <div class="count">
+                <p class="timer" id="seconds">00</p>
+                <span>seconds</span>
+            </div>
+        </div>
+        <br>
     </div>
     
  
@@ -286,7 +287,7 @@ body{
          
          
          var contentString = [
-        '<div class="iw_inner" style="z-index:1;font-family:BASKVILL;font-weight:900;font-size: 13px;width:100px;height:18px;text-align:center;">',
+        '<div class="iw_inner" style="z-index:-1;font-family:BASKVILL;font-weight:900;font-size: 13px;width:100px;height:18px;text-align:center;">',
         '   Enough Church',
         // '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
         // '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br />',
@@ -322,7 +323,7 @@ body{
 
     infowindow.open(map, marker);
    
-    var locationBtnHtml = '<button type="button" class="btm_image"><img src="img/mark6.png" width="30" height="30"/></button>';
+    var locationBtnHtml = '<button type="button" class="btm_image" style="z-index:-1;"><img src="img/mark6.png" width="30" height="30" /></button>';
  
     naver.maps.Event.once(map, 'init', function() {
     //customControl 객체 이용하기
