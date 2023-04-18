@@ -5,7 +5,7 @@
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
  <meta property="og:title" content="Enough Church">
- <meta property="og:image" content="img/mark3.jpg">
+ <meta property="og:image" content="img/mark3.jpg" sytle="width:auto; height:100%">
  <meta property="og:description" content="개척기도모임">
  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=gsb7qk9iq9"></script>
  <style>@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
@@ -355,11 +355,12 @@ const minsEl = document.getElementById('mins')
 const secondsEl = document.getElementById('seconds')
 
 function countDown(){
-    const newYear = new Date(2023, 04, 04, 20, 00, 00)
+    const newYear = new Date(2023, 04, 05, 20, 00, 00)
     const current = new Date()
 
     const diffTime = newYear-current
 
+    
     const days = Math.floor( diffTime/(1000*3600*24))
     const hours = Math.floor( diffTime/(1000*3600) %24)
     const mins = Math.floor( diffTime/(1000*60) %60)
@@ -369,13 +370,23 @@ function countDown(){
     hoursEl.innerHTML = formatTime(hours)
     minsEl.innerHTML = formatTime(mins)
     secondsEl.innerHTML = formatTime(seconds)
+
+    if (diffTime < 0) {
+                clearInterval(timer);
+                dayEl.innerHTML = "<h1>We</h1>";
+                hoursEl.innerHTML = "<h1>Worship</h1>";
+                minsEl.innerHTML = "<h1>Now</h1>";
+                secondsEl.innerHTML = "<h1>!!!</h1>";
+            }
 }
 function formatTime(time){
     return time.length === 1 ? (`0${time}`) : (time);
 }
 countDown()
 
-setInterval(countDown, 1000)
+timer = setInterval(countDown, 1000)
+
+
     </script>
 </body>
 </html>
