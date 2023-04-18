@@ -122,6 +122,49 @@
 #check_box:checked + label + #side_menu {
   left: 0;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    box-sizing: border-box;
+}
+h1{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+body{
+    background-image: url(https://images.unsplash.com/photo-1484503793037-5c9644d6a80a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center center;
+   
+    min-height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer{
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1;
+    margin: 0 2rem;
+}
+.count {
+    text-align: center;
+}
+.count span{
+    font-size: 10px;
+}
+
+
 </style>
 </head>
 <body>
@@ -167,6 +210,25 @@
 
     <div class = 'a' id = "apage">
         <img src ="img/1page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>       
+        <h1>첫번째 기도회 까지</h1>
+        <div class = "container">
+            <div class="count">
+                <p class="timer" id="day">00</p>
+                <span>days</span>
+            </div>
+            <div class="count">
+                <p class="timer" id="hours">00</p>
+                <span>hours</span>
+            </div>
+            <div class="count">
+                <p class="timer" id="mins">00</p>
+                <span>mins</span>
+            </div>    
+            <div class="count">
+                <p class="timer" id="seconds">00</p>
+                <span>seconds</span>
+            </div>
+        </div>
     </div>
     <div class = 'b' id = "bpage">
         <img src ="img/2page.jpg" alt = "" style = "width: 100%; height: auto; display: block; margin : auto;"/>
@@ -283,6 +345,33 @@ naver.maps.Event.addListener(map, 'click', function(e) {
     window.open(url);
 });
 
+const dayEl = document.getElementById('day')
+const hoursEl = document.getElementById('hours')
+const minsEl = document.getElementById('mins')
+const secondsEl = document.getElementById('seconds')
+
+function countDown(){
+    const newYear = new Date(2023, 04, 04, 20, 00, 00)
+    const current = new Date()
+
+    const diffTime = newYear-current
+
+    const days = Math.floor( diffTime/(1000*3600*24))
+    const hours = Math.floor( diffTime/(1000*3600) %24)
+    const mins = Math.floor( diffTime/(1000*60) %60)
+    const seconds = Math.floor( diffTime/(1000) %60)
+
+    dayEl.innerHTML = formatTime(days)
+    hoursEl.innerHTML = formatTime(hours)
+    minsEl.innerHTML = formatTime(mins)
+    secondsEl.innerHTML = formatTime(seconds)
+}
+function formatTime(time){
+    return time.length === 1 ? (`0${time}`) : (time);
+}
+countDown()
+
+setInterval(countDown, 1000)
     </script>
 </body>
 </html>
